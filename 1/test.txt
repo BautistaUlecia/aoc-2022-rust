@@ -1,8 +1,0 @@
-Hello this is a test file
-mi nombre es bautista
-esta es la tercera linea
-
-
-esta es la sexta linea
-123
-321
