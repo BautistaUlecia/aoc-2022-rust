@@ -1,7 +1,7 @@
 # aoc-2022-rust
 
-Learning rust by solving problems, starting by 2022.
+Solving advent of code 2022 in a language i've never used: Rust.
 
 https://adventofcode.com/2022
 
-The goal of this is to learn Rust by doing, so all solutions are my own (as ugly as they may be).
+The goal is to learn, so all solutions are my own (as ugly as they may be).
