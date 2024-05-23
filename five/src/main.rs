@@ -8,15 +8,14 @@ fn main() {
     // Hardcoded size, could parse line that only contains numbers to get it.
     let mut stacks : [VecDeque<char>; 9] = Default::default();// defaults to empty vector
 
-        for line in contents.lines() {
-            let first = line.chars().next();
-            match first {
-                Some('[') => add_to_stacks(line, &mut stacks),
-                Some('m') => operate(line, &mut stacks),
-                _ => (),
-            }
+    for line in contents.lines() {
+        match line.chars().find(|&c| c == '[' || c == 'm') {
+            Some('[') => add_to_stacks(line, &mut stacks),
+            Some('m') => operate(line, &mut stacks),
+            _ => (),
+        }
+
     }
-    // Part one
     for stack in stacks{
         println!("{}", stack.iter().last().unwrap());
     }
@@ -28,15 +27,21 @@ pub fn add_to_stacks(line: &str, stacks: &mut [VecDeque<char>; 9]){
         }
     }
 }
-pub fn operate(line: &str, stacks: &mut [VecDeque<char>; 9]){
-    let numbers: Vec<_> = line.split(' ').filter(|word|word.chars().all(|c| c.is_numeric())).collect();
+pub fn operate(line: &str, stacks: &mut [VecDeque<char>; 9]) {
+    let numbers: Vec<_> = line.split(' ').filter(|word| word.chars().all(|c| c.is_numeric())).collect();
     let amount = numbers[0].parse::<usize>().unwrap();
     let from = numbers[1].parse::<usize>().unwrap() - 1;
     let to = numbers[2].parse::<usize>().unwrap() - 1;
 
-    for _ in 0.. amount {
-        let popped = stacks[from].pop_back().unwrap();
-        stacks[to].push_back(popped);
-    }
-}
+    // one
 
+    // for _ in 0..amount {
+    //   let popped = stacks[from].pop_back().unwrap();
+    //  stacks[to].push_back(popped);
+    // }
+
+    // two
+
+    // let mut temp = stacks[from].split_off(stacks[from].len() - amount);
+    // stacks[to].append(&mut temp);
+}
